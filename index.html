@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#F5EFE4">
+<title>포천교육문화복합공간 두런두런 안내</title>
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Hahmlet:wght@500;700&display=swap" rel="stylesheet">
+ 
+<style>
+  :root{
+    --bg:#F5EFE4;
+    --bg-soft:#FBF6EC;
+    --ink:#2D2A24;
+    --ink-soft:#6B6459;
+    --line:#E6DDC9;
+    --orange:#E89546;
+    --orange-soft:#F9E5CC;
+    --blue:#4A90B8;
+    --blue-soft:#D6E7F0;
+    --green:#8BB76E;
+    --green-soft:#DCE8CC;
+    --brown:#4A3E30;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans KR',-apple-system,sans-serif;line-height:1.55;overflow-x:hidden}
+  body{min-height:100vh;padding-bottom:calc(40px + env(safe-area-inset-bottom))}
+ 
+  /* ── 상단 헤더 ─────────────────────── */
+  .header{
+    padding:28px 22px 20px;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(74,144,184,.12), transparent 40%),
+      radial-gradient(circle at 15% 85%, rgba(232,149,70,.12), transparent 40%),
+      var(--bg);
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .kicker{
+    font-family:'IBM Plex Sans KR',sans-serif;
+    font-size:12px;font-weight:500;letter-spacing:.18em;color:var(--ink-soft);
+    text-transform:uppercase;margin-bottom:10px;
+  }
+  .brand{
+    font-family:'Hahmlet',serif;font-weight:700;
+    font-size:34px;line-height:1.15;color:var(--brown);
+    letter-spacing:-.02em;
+  }
+  .brand .dot-b{color:var(--blue)}
+  .brand .dot-o{color:var(--orange)}
+  .brand .dot-g{color:var(--green)}
+  .subtitle{
+    margin-top:10px;font-size:14px;color:var(--ink-soft);font-weight:400;
+  }
+  .tagline{
+    margin-top:14px;padding:10px 14px;
+    background:rgba(255,255,255,.55);
+    border:1px dashed var(--line);
+    border-radius:14px;
+    font-family:'Gowun Dodum',sans-serif;
+    font-size:13px;color:var(--brown);text-align:center;
+  }
+ 
+  /* ── 빠른 안내 배지 ─────────────────── */
+  .quick{
+    display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;
+  }
+  .quick span{
+    font-size:11.5px;padding:6px 11px;background:#fff;border:1px solid var(--line);
+    border-radius:999px;color:var(--ink-soft);
+  }
+ 
+  /* ── 섹션 타이틀 ────────────────────── */
+  .sec-title{
+    padding:26px 22px 10px;
+    display:flex;align-items:baseline;gap:10px;
+  }
+  .sec-title h2{
+    font-family:'Hahmlet',serif;font-weight:700;font-size:18px;color:var(--brown);
+  }
+  .sec-title .hint{font-size:12px;color:var(--ink-soft)}
+ 
+  /* ── 카드 그리드 ────────────────────── */
+  .grid{
+    padding:4px 16px 8px;
+    display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  }
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:16px 14px 14px;cursor:pointer;
+    position:relative;overflow:hidden;
+    transition:transform .18s ease, box-shadow .18s ease;
+    min-height:168px;display:flex;flex-direction:column;
+  }
+  .card:active{transform:scale(.98)}
+  .card:hover{box-shadow:0 8px 24px rgba(74,62,48,.08)}
+  .card .floor{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;
+    font-family:'Hahmlet',serif;font-weight:700;font-size:13px;color:#fff;
+    margin-bottom:10px;letter-spacing:-.02em;
+  }
+  .card .tag{
+    position:absolute;top:14px;right:14px;
+    font-size:10.5px;padding:4px 9px;border-radius:999px;
+    background:var(--bg-soft);color:var(--ink-soft);border:1px solid var(--line);
+  }
+  .card h3{
+    font-family:'Hahmlet',serif;font-weight:700;font-size:15.5px;
+    color:var(--brown);line-height:1.3;
+  }
+  .card .sub{
+    font-size:11.5px;color:var(--ink-soft);margin-top:3px;
+    font-family:'Gowun Dodum',sans-serif;
+  }
+  .card .phone{
+    margin-top:auto;padding-top:12px;
+    display:flex;align-items:center;gap:6px;
+    font-size:13px;font-weight:600;color:var(--ink);
+  }
+  .card .phone svg{width:14px;height:14px;flex-shrink:0}
+  .card .arrow{
+    position:absolute;bottom:14px;right:14px;
+    font-size:11px;color:var(--ink-soft);
+  }
+ 
+  /* 층별 컬러 */
+  .card.c-orange .floor{background:var(--orange)}
+  .card.c-orange{background:linear-gradient(180deg,#fff 0%,#fff 60%,var(--orange-soft) 150%)}
+  .card.c-blue .floor{background:var(--blue)}
+  .card.c-blue{background:linear-gradient(180deg,#fff 0%,#fff 60%,var(--blue-soft) 150%)}
+  .card.c-bluelight .floor{background:#6FA8C4}
+  .card.c-bluelight{background:linear-gradient(180deg,#fff 0%,#fff 60%,#E4F0F7 150%)}
+  .card.c-green .floor{background:var(--green)}
+  .card.c-green{background:linear-gradient(180deg,#fff 0%,#fff 60%,var(--green-soft) 150%)}
+ 
+  /* ── 공통 운영시간 ────────────────────── */
+  .common-info{
+    margin:14px 16px 0;padding:14px 16px;
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .common-info .ci-label{
+    font-family:'Hahmlet',serif;font-weight:700;color:var(--brown);
+    font-size:13px;flex-shrink:0;
+  }
+  .common-info .ci-text{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+  .common-info .ci-text b{color:var(--ink);font-weight:600}
+ 
+  /* ── 푸터 ──────────────────────────── */
+  .footer{
+    margin-top:26px;padding:18px 22px;border-top:1px solid var(--line);
+    font-size:11.5px;color:var(--ink-soft);text-align:center;line-height:1.7;
+  }
+  .footer b{color:var(--brown)}
+ 
+  /* ── 모달 ──────────────────────────── */
+  .overlay{
+    position:fixed;inset:0;background:rgba(45,42,36,.5);
+    opacity:0;pointer-events:none;transition:opacity .22s ease;
+    z-index:100;backdrop-filter:blur(2px);
+  }
+  .overlay.on{opacity:1;pointer-events:auto}
+ 
+  .sheet{
+    position:fixed;left:0;right:0;bottom:0;
+    background:var(--bg-soft);border-radius:24px 24px 0 0;
+    padding:10px 0 24px;
+    transform:translateY(100%);transition:transform .28s cubic-bezier(.22,1,.36,1);
+    z-index:101;max-height:86vh;overflow-y:auto;
+    box-shadow:0 -10px 40px rgba(45,42,36,.15);
+  }
+  .sheet.on{transform:translateY(0)}
+  .sheet .handle{
+    width:44px;height:4px;background:var(--line);border-radius:4px;
+    margin:6px auto 14px;
+  }
+ 
+  .sheet-head{
+    padding:0 22px 16px;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:14px;
+  }
+  .sheet-head .sh-badge{
+    width:52px;height:52px;border-radius:50%;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Hahmlet',serif;font-weight:700;font-size:12px;color:#fff;
+    line-height:1.1;text-align:center;
+  }
+  .sheet-head h4{
+    font-family:'Hahmlet',serif;font-weight:700;font-size:19px;color:var(--brown);
+    line-height:1.25;
+  }
+  .sheet-head .sh-sub{
+    font-family:'Gowun Dodum',sans-serif;font-size:12px;color:var(--ink-soft);
+    margin-top:3px;
+  }
+  .close-btn{
+    position:absolute;top:14px;right:18px;
+    width:32px;height:32px;border:none;background:#fff;
+    border:1px solid var(--line);border-radius:50%;font-size:18px;
+    color:var(--ink-soft);cursor:pointer;line-height:1;
+  }
+ 
+  .info-list{padding:18px 18px 0}
+  .info-item{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:12px 16px;margin-bottom:10px;
+  }
+  .info-item .label{
+    font-size:11px;color:var(--ink-soft);font-weight:500;
+    letter-spacing:.05em;margin-bottom:4px;
+  }
+  .info-item .value{
+    font-size:14px;color:var(--ink);font-weight:500;line-height:1.55;
+  }
+  .info-item .value.mono{font-variant-numeric:tabular-nums;font-weight:600;font-size:15px}
+  .info-item .value small{color:var(--ink-soft);font-weight:400;font-size:12px}
+ 
+  .btn-row{padding:14px 18px 0;display:flex;gap:8px}
+  .btn{
+    flex:1;padding:14px;border-radius:14px;border:none;cursor:pointer;
+    font-family:inherit;font-size:14px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;gap:6px;
+    text-decoration:none;
+  }
+  .btn-call{background:var(--brown);color:#fff}
+  .btn-call:active{background:#2D2A24}
+  .btn-link{background:#fff;color:var(--brown);border:1px solid var(--line)}
+  .btn svg{width:16px;height:16px}
+ 
+  .notice{
+    margin:14px 18px 0;padding:10px 14px;
+    background:rgba(232,149,70,.08);border:1px dashed var(--orange);
+    border-radius:12px;font-size:11.5px;color:var(--brown);line-height:1.55;
+  }
+ 
+  @media (min-width:520px){
+    body{max-width:480px;margin:0 auto;box-shadow:0 0 40px rgba(0,0,0,.04)}
+  }
+</style>
+</head>
+<body>
+ 
+<!-- ─────────── 헤더 ─────────── -->
+<header class="header">
+  <div class="kicker">POCHEON · EDUCATION · CULTURE</div>
+  <h1 class="brand">포천교육문화복합공간<br>두런<span class="dot-o">·</span>두런<span class="dot-g">·</span></h1>
+  <p class="subtitle">포천의 일상에 교육<span style="color:var(--blue)">·</span>돌봄<span style="color:var(--orange)">·</span>여가<span style="color:var(--green)">·</span>를 더하다</p>
+  <div class="tagline">아이와 부모, 시민이 함께 웃고 머무는 공간</div>
+  <div class="quick">
+    <span>📍 포천시 소흘읍 태봉로 216</span>
+    <span>🏢 지하1층 ~ 지상3층</span>
+  </div>
+</header>
+ 
+<!-- ─────────── 전체 운영시간 ─────────── -->
+<div class="common-info">
+  <div class="ci-label">🕘 두런두런<br>운영시간</div>
+  <div class="ci-text">
+    평일 <b>09:00 ~ 22:00</b><br>
+    주말 <b>09:00 ~ 21:00</b> <small>(시설별 상이)</small>
+  </div>
+</div>
+ 
+<!-- ─────────── 카드 섹션 ─────────── -->
+<div class="sec-title">
+  <h2>층별 · 기관별 안내</h2>
+  <span class="hint">카드를 눌러주세요</span>
+</div>
+ 
+<div class="grid">
+ 
+  <!-- 1F 포천애봄365소흘 -->
+  <div class="card c-orange" onclick="openSheet('aebom')">
+    <span class="tag">1F</span>
+    <div class="floor">1F</div>
+    <h3>포천애봄<br>365소흘</h3>
+    <div class="sub">초등 돌봄 · 방과후</div>
+    <div class="phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      031-542-1253
+    </div>
+    <div class="arrow">자세히 ›</div>
+  </div>
+ 
+  <!-- 2F 포천 육아종합지원센터 -->
+  <div class="card c-blue" onclick="openSheet('yuga')">
+    <span class="tag">2F</span>
+    <div class="floor">2F</div>
+    <h3>포천 육아종합<br>지원센터</h3>
+    <div class="sub">(맘대로 A+놀이터)</div>
+    <div class="phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      031-541-9966
+    </div>
+    <div class="arrow">자세히 ›</div>
+  </div>
+ 
+  <!-- 2F EBS 자기주도학습센터 -->
+  <div class="card c-bluelight" onclick="openSheet('ebs')">
+    <span class="tag">2F</span>
+    <div class="floor">EBS</div>
+    <h3>포천형 EBS<br>자기주도학습센터</h3>
+    <div class="sub">소흘권역 · 초·중·고</div>
+    <div class="phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      031-538-2032
+    </div>
+    <div class="arrow">자세히 ›</div>
+  </div>
+ 
+  <!-- 3F 소흘 평생학습관 -->
+  <div class="card c-green" onclick="openSheet('soheul')">
+    <span class="tag">3F</span>
+    <div class="floor">3F</div>
+    <h3>소흘<br>평생학습관</h3>
+    <div class="sub">성인 학습 프로그램</div>
+    <div class="phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      031-538-3041
+    </div>
+    <div class="arrow">자세히 ›</div>
+  </div>
+ 
+</div>
+ 
+<!-- ─────────── 푸터 ─────────── -->
+<footer class="footer">
+  <b>📞 대표 안내 031-540-6389</b><br>
+  담당부서 교육정책과 · 최종수정일 2026-04-22<br>
+  <span style="font-size:10.5px">본 페이지는 두런두런 공간 안내를 위한 시안입니다</span>
+</footer>
+ 
+<!-- ─────────── 공통 오버레이 & 시트 ─────────── -->
+<div class="overlay" id="overlay" onclick="closeSheet()"></div>
+ 
+<!-- 시트: 포천애봄365소흘 -->
+<div class="sheet" id="sheet-aebom">
+  <div class="handle"></div>
+  <button class="close-btn" onclick="closeSheet()">×</button>
+  <div class="sheet-head">
+    <div class="sh-badge" style="background:var(--orange)">돌봄<br>1F</div>
+    <div>
+      <h4>포천애봄365 소흘</h4>
+      <div class="sh-sub">초등 돌봄 및 방과후 이용 안내</div>
+    </div>
+  </div>
+  <div class="info-list">
+    <div class="info-item">
+      <div class="label">📞 전화번호</div>
+      <div class="value mono">031-542-1253</div>
+    </div>
+    <div class="info-item">
+      <div class="label">👥 이용대상</div>
+      <div class="value"><b>포천시 관내</b> 초등학생<br>돌봄 사각지대 아동</div>
+    </div>
+    <div class="info-item">
+      <div class="label">🏷️ 운영안내</div>
+      <div class="value">· 방과 후 · 주말돌봄 서비스 및 학습지도<br>· 창의놀이 및 체험활동, 계절학기 프로그램</div>
+    </div>
+    <div class="info-item">
+      <div class="label">🕘 운영시간</div>
+      <div class="value">
+        · 학기 중 : 평일 13:00 ~ 20:00<br>
+        · 방학 중 : 평일 09:00 ~ 20:00<br>
+        · 아동 돌봄 필요 시 : <b>24시간 운영</b>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="label">📝 예약방법</div>
+      <div class="value">1F 현장 접수 또는 유선 문의</div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <a href="tel:031-542-1253" class="btn btn-call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      전화걸기
+    </a>
+  </div>
+</div>
+ 
+<!-- 시트: 포천 육아종합지원센터 -->
+<div class="sheet" id="sheet-yuga">
+  <div class="handle"></div>
+  <button class="close-btn" onclick="closeSheet()">×</button>
+  <div class="sheet-head">
+    <div class="sh-badge" style="background:var(--blue)">육아<br>2F</div>
+    <div>
+      <h4>포천 육아종합지원센터</h4>
+      <div class="sh-sub">(맘대로 A+놀이터)</div>
+    </div>
+  </div>
+  <div class="info-list">
+    <div class="info-item">
+      <div class="label">📞 전화번호</div>
+      <div class="value mono">031-541-9966</div>
+    </div>
+    <div class="info-item">
+      <div class="label">👥 이용대상</div>
+      <div class="value"><b>포천시 관내 영유아가정</b><br>어린이집 보육교직원 · 예비 부모 등</div>
+    </div>
+    <div class="info-item">
+      <div class="label">🏷️ 운영안내</div>
+      <div class="value">· 맘대로 A+놀이터 및 장난감도서관 운영<br>· 영유아 교육과 아동 발달검사<br>· 부모 상담 및 교육</div>
+    </div>
+    <div class="info-item">
+      <div class="label">🕘 운영시간</div>
+      <div class="value">
+        · 육아종합지원센터 : 평일 09:00 ~ 18:00 <small>(주말 휴관)</small><br>
+        · 맘대로 A+놀이터 : 09:30~11:30 (단체) / 13:30~17:30 (개인)<br>
+        <small>· 매월 마지막 월요일 휴관 · 주말 프로그램 탄력 운영</small>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="label">📝 예약방법</div>
+      <div class="value">온라인 예약 (회원가입 필요)<br><small>아래 '예약 링크'를 눌러주세요</small></div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <a href="tel:031-541-9966" class="btn btn-call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      전화걸기
+    </a>
+    <a href="https://www.pocheonscc.or.kr/bbs/board.php?bo_table=s3_2_2" target="_blank" rel="noopener" class="btn btn-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      예약 링크
+    </a>
+  </div>
+  <div class="notice">※ 예약 링크 접속 후 회원가입이 필요합니다.</div>
+</div>
+ 
+<!-- 시트: EBS 자기주도학습센터 -->
+<div class="sheet" id="sheet-ebs">
+  <div class="handle"></div>
+  <button class="close-btn" onclick="closeSheet()">×</button>
+  <div class="sheet-head">
+    <div class="sh-badge" style="background:#6FA8C4">EBS<br>2F</div>
+    <div>
+      <h4>포천형 EBS 자기주도학습센터</h4>
+      <div class="sh-sub">소흘권역 · 청소년 자기주도 학습</div>
+    </div>
+  </div>
+  <div class="info-list">
+    <div class="info-item">
+      <div class="label">📞 전화번호</div>
+      <div class="value mono">031-538-2032</div>
+    </div>
+    <div class="info-item">
+      <div class="label">👥 이용대상</div>
+      <div class="value"><b>포천시 관내</b> 초등(고학년) · 중 · 고등학생 60명</div>
+    </div>
+    <div class="info-item">
+      <div class="label">🏷️ 운영안내</div>
+      <div class="value">· EBS 온라인 클래스 및 AI 튜터 활용 학습<br>· 자기주도학습 독서실 운영<br>· 진로탐색 및 학습코칭 프로그램<br>· 인강형 공공학원 운영</div>
+    </div>
+    <div class="info-item">
+      <div class="label">🕘 운영시간</div>
+      <div class="value">
+        · 평일 (학기 중) : <b>15:30 ~ 21:30</b><br>
+        · 방학 기간 : <b>09:30 ~ 18:00</b><br>
+        <small>※ 운영시간 외 자율학습 운영 (평일~22:00 / 주말~21:00)</small>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="label">📝 예약방법</div>
+      <div class="value">2F 현장 또는 네이버 블로그 접수</div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <a href="tel:031-538-2032" class="btn btn-call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      전화걸기
+    </a>
+  </div>
+</div>
+ 
+<!-- 시트: 소흘 평생학습관 -->
+<div class="sheet" id="sheet-soheul">
+  <div class="handle"></div>
+  <button class="close-btn" onclick="closeSheet()">×</button>
+  <div class="sheet-head">
+    <div class="sh-badge" style="background:var(--green)">학습<br>3F</div>
+    <div>
+      <h4>소흘 평생학습관</h4>
+      <div class="sh-sub">성인을 위한 학습 프로그램 안내</div>
+    </div>
+  </div>
+  <div class="info-list">
+    <div class="info-item">
+      <div class="label">📞 전화번호</div>
+      <div class="value mono">031-538-3041</div>
+    </div>
+    <div class="info-item">
+      <div class="label">👥 이용대상</div>
+      <div class="value"><b>포천시 관내</b> 성인</div>
+    </div>
+    <div class="info-item">
+      <div class="label">🏷️ 운영안내</div>
+      <div class="value">· 정규강좌 : 자격취득, 자기계발, 인문교양<br>· 특화프로그램 : 지역특성 반영<br>· 소규모 시민강좌<br>· 학습동아리 공간 대여 및 활동지원</div>
+    </div>
+    <div class="info-item">
+      <div class="label">🕘 운영시간</div>
+      <div class="value">
+        · 월 · 수 · 금 : 09:00 ~ 18:00<br>
+        · 화 · 목 : 09:00 ~ 21:00<br>
+        · 토 : 09:00 ~ 18:00<br>
+        <small>※ 주말 프로그램 탄력 운영</small>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="label">📝 예약방법</div>
+      <div class="value">3F 오프라인 접수</div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <a href="tel:031-538-3041" class="btn btn-call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      전화걸기
+    </a>
+  </div>
+  <div class="notice">오프라인 접수 일정은 현장 또는 유선 문의를 권장합니다.</div>
+</div>
+ 
+<script>
+  function openSheet(id){
+    document.getElementById('overlay').classList.add('on');
+    document.getElementById('sheet-'+id).classList.add('on');
+    document.body.style.overflow='hidden';
+  }
+  function closeSheet(){
+    document.getElementById('overlay').classList.remove('on');
+    document.querySelectorAll('.sheet').forEach(s=>s.classList.remove('on'));
+    document.body.style.overflow='';
+  }
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeSheet(); });
+</script>
+ 
+</body>
+</html>
